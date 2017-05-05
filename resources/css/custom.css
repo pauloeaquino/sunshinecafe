@@ -1,5 +1,158 @@
+/*DEFAULT SETTINGS*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/*
+- default white background
+- font color is dark black
+- Lato is a Google font
+- 20px is the overall font size for the whole project
+- text-rendering property with optimizeLegibility attr will render fonts optimally
+*/
+html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+/*
+- row class will be set to a maximum width of 1140px
+- by setting margin to 0 on top/btm and auto lt/rt, it can be centered
+*/
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/*
+- set background img
+- fill entire viewport w/img: set height to 100vh
+- set background-size to cover to see whole img
+- center img by setting background-position to center
+- darken the img for better viewablity. add linear-gradient() attr to background-image. pass in two values: starting color, end color. set 70% black transparency for for both start and end.
+*/
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/*
+- set position to absolute so it can be centered vertically and horizontally
+- assign the width to 1140, which is the same as the row class
+- top:50% & left:50% will set the box near the btm-rt-ish corner, to fix this use transform: translate(-50%, -50%). this will translate half of the element's width and height up and to the left
+- 
+*/
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+- set color to white (#fff).
+- font size will be 200% (40px). use percentages to keep responsiveness.
+- REC: for large headings, decrease font-weight & set to all caps
+- text-transform: uppercase will set to all caps
+- set letter-spacing to 'decompress' the space between letters
+- set margin top to 0. set margin bottom to 20px to add space between the title and buttons
+*/
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%;
+    font-weight: 100; /* h1 elements are usually set to bold, so decrease weight*/
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+}
+
+/*
+Set common styles for all buttons
+- set to inline-block. just like inline element but can have heading and margin. can add padding. doesn't force a line break.
+- set padding let/rt to 10. top/btm to 30px
+- get rid of the underline
+- for round buttons set the border-radius
+- set font color to white
+- for this project, we want links to look the same ALL THE TIME, so set properties for both btn:link & btn:visited at the same time
+- for a CSS background transition, use the transition property. in this case, we will set the background-color to 0.2seconds
+- can specify more than one property. so we'll also set border and color to transition as well
+*/
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    color: #fff;
+    transition: background-color 0.2s; border 0.2s; color 0.2s;
+}
+
+/*
+Set specific style for btn-full
+- set background color. using flatuicolors for inspiration
+- DESIGN: set font to white
+- for this project, we want links to look the same ALL THE TIME, so set properties for both btn:link & btn:visited at the same time
+- to place some space btw the btn-full and btn-ghost, add some margin to the right of the btn-full
+*/
+.btn-full:link,
+.btn-full:visited {
+    background-color: #e67e22;
+    border: solid 1px #e67e22;
+    color: #fff;
+    margin-right: 15px;
+}
+
+/*
+Set specific style for btn-full
+- set background color. using flatuicolors for inspiration
+- set border to orange. NOTE: the button will become 1px larger than the the btn-full, so set btn-full with the same border
+- DESIGN: change font color to orange
+- for this project, we want links to look the same ALL THE TIME, so set properties for both btn:link & btn:visited at the same time
+*/
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: solid 1px #e67e22;
+    color: #e67e22;
+}
+
+/*
+Set button states. use pseudo classes example. btn:link
+- link: how the button looks in the normal state
+- visted: how element looks like AFTER it is visited. for this project, we want links to look the same ALL THE TIME, so set properties for both btn:link & btn:visited at the same time
+- active: when a button is clicked
+- hover: when mouse is over a button
+*/
+
+/*
+- for this project, we want hover&active links to look the same ALL THE TIME, so set properties for both btn:hover & btn:active at the same time
+- we want buttons to have a darker orange tone so as to see change. use 0to255 tool to find shades of any given hex color
+- NOTE: border color of btn-full and btn-ghost will not match with the background. lighter orange font color in btn-ghost will also need to be changed
+*/
+.btn:hover,
+.btn:active {
+    background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    border: solid 1px #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: solid 1px #cf6d17;
+    color: #fff;
 }
